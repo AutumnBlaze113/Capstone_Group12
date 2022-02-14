@@ -138,10 +138,7 @@ void ACapCharacter::StartSprint()
 		isSprinting = true;
 		MovementPtr->MaxWalkSpeed = 1800.0f;
 	}
-	else
-	{
-		TakeDamage();
-	}
+	
 	
 }
 
