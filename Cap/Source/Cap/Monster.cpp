@@ -31,26 +31,33 @@ void AMonster::BeginPlay()
 // Called every frame
 void AMonster::Tick(float DeltaTime)
 {
-	if (!isStunned) {
-		if (distance >= 100.0f) {
-			selfPositon += DeltaTime * velocity;
+	if (!isStunned) { // if the monster is not stunned
+		if (distance >= 100.0f) {// if the monster does not reach the player
+			selfPositon += DeltaTime * velocity; // update position
 			SetActorLocation(selfPositon);
 		}
 
-		selfPositon = GetActorLocation();
-		playerPosition = Player->GetActorLocation();
+		else { // if the monster reaches player
+			Player->TakeDamage(); // player evaluate health value
+		}
 
-		velocity.Normalize();
-		velocity *= speed;
+			selfPositon = GetActorLocation();//update self position
+			playerPosition = Player->GetActorLocation();//update player position
+
+			velocity.Normalize();
+			velocity *= speed; // update velcity
+		
+		
 	}
 
-	if (Player->stunning <= 0.0f) {
+
+	if (Player->stunning <= 0.0f) {// if player not stuns monster
 		isStunned = false;
 	}
-	else {
+	else {// if stuns
 		isStunned = true;
 	}
-	velocity = playerPosition - selfPositon;
+	velocity = playerPosition - selfPositon; // update direction
 
 	distance = velocity.Size();
 
