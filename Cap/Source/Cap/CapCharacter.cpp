@@ -199,10 +199,8 @@ void ACapCharacter::UsePill()
 
 void ACapCharacter::UseStimulants()
 {
-	if (energy <= (maxEnergy / 2) && stimulants > 0) {
-		stimulants--;
-		energy = maxEnergy;
-	}
+	stimulants--;
+	energy = maxEnergy;
 }
 
 void ACapCharacter::UseVaccine()
