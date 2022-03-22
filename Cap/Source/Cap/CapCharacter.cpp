@@ -64,6 +64,10 @@ ACapCharacter::ACapCharacter()
 	stimulants = 1;
 	flash = 1;
 	vaccine = 0;
+
+	toBePick = 0;
+	keyPick = 0; 
+	PickTime = 0;
 }
 
 //////////////////////////////////////////////////////////////////////////

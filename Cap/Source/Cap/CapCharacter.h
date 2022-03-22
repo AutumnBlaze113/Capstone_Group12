@@ -112,6 +112,13 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 		float stunning;
 
+	UPROPERTY(BlueprintReadOnly)
+		int toBePick; // 0 nothing, 1 flash, 2 pill, 3 energy
+	UPROPERTY(BlueprintReadOnly)
+		float keyPick; // pick time, -1 unavaiable
+	UPROPERTY(BlueprintReadOnly)
+		float PickTime; // pick time for items
+
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable)
