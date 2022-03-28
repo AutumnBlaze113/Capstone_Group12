@@ -16,8 +16,8 @@ ACapGameMode::ACapGameMode()
 	currentTime = 300.0f;
 	isRunning = true;
 
-	totalKey = 10;
-	keysLeft = 10;
+	totalKey = 5;
+	keysLeft = 5;
 
 	PrimaryActorTick.bStartWithTickEnabled = true;
 	PrimaryActorTick.bCanEverTick = true;

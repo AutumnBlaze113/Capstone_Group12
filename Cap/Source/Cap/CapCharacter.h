@@ -6,6 +6,10 @@
 #include "GameFramework/Character.h"
 #include "CapCharacter.generated.h"
 
+DECLARE_DELEGATE(FOnPuzzleStart);
+
+DECLARE_DELEGATE(FOnPuzzleEnd);
+
 UCLASS(config=Game)
 class ACapCharacter : public ACharacter
 {
@@ -119,6 +123,12 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 		float PickTime; // pick time for items
 
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+		bool inPuzzle; //is the player in a puzzle
+
+	FOnPuzzleStart puzzleStarted;
+	FOnPuzzleEnd puzzleEnded;
+
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable)
@@ -142,5 +152,8 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 		void SetShortCut(int32 name);
+
+	UFUNCTION(BlueprintCallable)
+		void SetPuzzle(bool _inPuzzle);
 };
 

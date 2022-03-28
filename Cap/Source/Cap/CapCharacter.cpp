@@ -282,3 +282,13 @@ void ACapCharacter::MoveRight(float Value)
 		AddMovementInput(Direction, Value);
 	}
 }
+
+void ACapCharacter::SetPuzzle(bool _inPuzzle) {
+	inPuzzle = _inPuzzle;
+	if (inPuzzle) {
+		puzzleStarted.ExecuteIfBound();
+	}
+	else {
+		puzzleEnded.ExecuteIfBound();
+	}
+}

@@ -10,6 +10,7 @@ AMonster::AMonster()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	isStunned = false;
+	isPaused = false;
 }
 
 // Called when the game starts or when spawned
@@ -26,12 +27,14 @@ void AMonster::BeginPlay()
 	velocity.Normalize();
 	velocity *= speed;
 	
+	Player->puzzleStarted.BindUObject(this, &AMonster::StopMovement);
+	Player->puzzleEnded.BindUObject(this, &AMonster::StartMovement);
 }
 
 // Called every frame
 void AMonster::Tick(float DeltaTime)
 {
-	if (!isStunned) { // if the monster is not stunned
+	if (!isStunned || !isPaused) { // if the monster is not stunned or paused due to puzzles
 		if (distance >= 100.0f) {// if the monster does not reach the player
 			selfPositon += DeltaTime * velocity; // update position
 			SetActorLocation(selfPositon);
@@ -79,3 +82,10 @@ void AMonster::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 }
 
+void AMonster::StartMovement() {
+	isPaused = false;
+}
+
+void AMonster::StopMovement() {
+	isPaused = true;
+}
