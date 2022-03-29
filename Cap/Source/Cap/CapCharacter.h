@@ -113,7 +113,7 @@ public:
 		float distance;
 	UPROPERTY(BlueprintReadOnly)
 		FVector2D direction;
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(BlueprintReadWrite)
 		float stunning;
 
 	UPROPERTY(BlueprintReadOnly)

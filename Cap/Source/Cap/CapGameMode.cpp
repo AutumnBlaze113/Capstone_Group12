@@ -21,6 +21,10 @@ ACapGameMode::ACapGameMode()
 
 	PrimaryActorTick.bStartWithTickEnabled = true;
 	PrimaryActorTick.bCanEverTick = true;
+
+	power = false;
+	passcode = false;
+	test = false;
 }
 
 void ACapGameMode::Tick(float DeltaTime)

@@ -14,7 +14,7 @@ class ACapGameMode : public AGameModeBase
 public:
 	ACapGameMode();
 
-	UPROPERTY(BlueprintReadOnly)
+	UPROPERTY(BlueprintReadWrite)
 		float currentTime;
 
 	UPROPERTY(BlueprintReadWrite)
@@ -26,11 +26,19 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 		int32 totalKey;
 
+	UPROPERTY(BlueprintReadWrite)
+		bool power;
+	UPROPERTY(BlueprintReadWrite)
+		bool passcode;
+	UPROPERTY(BlueprintReadWrite)
+		bool test;
+
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 	UFUNCTION(BlueprintCallable)
 		void GetKey();
+	
 };
 
 

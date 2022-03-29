@@ -34,7 +34,7 @@ void AMonster::BeginPlay()
 // Called every frame
 void AMonster::Tick(float DeltaTime)
 {
-	if (!isStunned || !isPaused) { // if the monster is not stunned or paused due to puzzles
+	if (!isStunned && !isPaused) { // if the monster is not stunned or paused due to puzzles
 		if (distance >= 100.0f) {// if the monster does not reach the player
 			selfPositon += DeltaTime * velocity; // update position
 			SetActorLocation(selfPositon);
