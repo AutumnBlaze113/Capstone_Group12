@@ -68,6 +68,8 @@ ACapCharacter::ACapCharacter()
 	toBePick = 0;
 	keyPick = 0; 
 	PickTime = 0;
+
+	tool = false;
 }
 
 //////////////////////////////////////////////////////////////////////////

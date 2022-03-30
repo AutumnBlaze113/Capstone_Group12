@@ -126,6 +126,9 @@ public:
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
 		bool inPuzzle; //is the player in a puzzle
 
+	UPROPERTY(BlueprintReadWrite)
+		bool tool;
+
 	FOnPuzzleStart puzzleStarted;
 	FOnPuzzleEnd puzzleEnded;
 
