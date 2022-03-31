@@ -33,6 +33,9 @@ public:
 	UPROPERTY(BlueprintReadWrite)
 		bool test;
 
+	UPROPERTY(BlueprintReadWrite)
+		float PuzzleCd;
+
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

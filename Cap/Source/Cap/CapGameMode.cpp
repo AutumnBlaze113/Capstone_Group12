@@ -25,6 +25,8 @@ ACapGameMode::ACapGameMode()
 	power = false;
 	passcode = false;
 	test = false;
+
+	PuzzleCd = 0.0f;
 }
 
 void ACapGameMode::Tick(float DeltaTime)
@@ -38,6 +40,9 @@ void ACapGameMode::Tick(float DeltaTime)
 	{
 		currentTime = 0.0f;
 		isRunning = false;
+	}
+	if (PuzzleCd > 0.0f) {
+		PuzzleCd -= DeltaTime;
 	}
 	Super::Tick(DeltaTime);
 }
