@@ -29,8 +29,7 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	void StartMovement();
-	void StopMovement();
+
 
 
 private:
@@ -40,10 +39,14 @@ private:
 	FVector playerPosition;
 
 	FVector velocity;
-	float speed;
 
 	float distance;
 
 	bool isStunned;
+
+public:
+
+	UPROPERTY(BlueprintReadWrite)
+		float speed;
 
 };

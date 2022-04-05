@@ -11,6 +11,7 @@ AMonster::AMonster()
 	PrimaryActorTick.bCanEverTick = true;
 	isStunned = false;
 	isPaused = false;
+	speed = 0.0f;
 }
 
 // Called when the game starts or when spawned
@@ -20,15 +21,12 @@ void AMonster::BeginPlay()
 	Player = Cast<ACapCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));// Call player status
 	selfPositon = GetActorLocation();
 	playerPosition = Player->GetActorLocation();
-	speed = 600.0f;
-	speed = 0.0f;
+	
 	velocity = playerPosition - selfPositon;
 	distance = velocity.Size();
 	velocity.Normalize();
 	velocity *= speed;
 	
-	Player->puzzleStarted.BindUObject(this, &AMonster::StopMovement);
-	Player->puzzleEnded.BindUObject(this, &AMonster::StartMovement);
 }
 
 // Called every frame
@@ -82,10 +80,3 @@ void AMonster::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 }
 
-void AMonster::StartMovement() {
-	isPaused = false;
-}
-
-void AMonster::StopMovement() {
-	isPaused = true;
-}
