@@ -207,6 +207,7 @@ void ACapCharacter::UseStimulants()
 {
 	stimulants--;
 	energy = maxEnergy;
+	sprintEnable = true;
 }
 
 void ACapCharacter::UseVaccine()
